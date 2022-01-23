@@ -11,6 +11,7 @@ interface Task {
 }
 
 // Aparentemente o problema desse arquivo é a definição do randomID, que pode limitar o número de tasks criadas
+// Buscar novas soluções para este problema
 
 export function TaskList() {
   const [tasks, setTasks] = useState<Task[]>([]);

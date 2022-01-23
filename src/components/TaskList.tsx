@@ -10,9 +10,6 @@ interface Task {
   isComplete: boolean;
 }
 
-// Aparentemente o problema desse arquivo é a definição do randomID, que pode limitar o número de tasks criadas
-// Buscar novas soluções para este problema
-
 export function TaskList() {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [newTaskTitle, setNewTaskTitle] = useState('');
@@ -20,7 +17,7 @@ export function TaskList() {
   function handleCreateNewTask() {
     // Crie uma nova task com um id random, não permita criar caso o título seja vazio.
     if (newTaskTitle) { // Checa se o titulo não está vazio
-      const randomId = Math.floor(Math.random() * (500 - 1)) + 1; // Gera um numero aleatorio entre 0 e 1 (não incluso)
+      const randomId = Math.random(); // Gera um numero aleatorio entre 0 e 1 (não incluso)
       setTasks([...tasks, {id: randomId, title: newTaskTitle, isComplete: false}]); // Dá um set em tasks passando as tarefas que já existiam e adicionando nova
       setNewTaskTitle('') // "Apaga" o input para podermos inserir uma nova task
     }
